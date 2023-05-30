@@ -28,7 +28,17 @@ class API {
     // code goes here for fetching the initial posts with the url, and options arguments
     // then handle the returned Promise with .then(response=>response.json()) followed by
     // chaining .then(jsonRes=>{ // put more in here }) and .catch(err=>{})
+   try {
+    const response = await fetch(this.url, this.options);
+    const postDate = await response.json();
+    console.log('Retrieved posts from API!');
+    console.log(postDate);
+    this._posts = postDate.date;
+    return;
+   } catch (err){
+    console.log(err);
 
+   }
 
   }
 
@@ -48,7 +58,7 @@ class API {
     return new Promise((resolve, reject) => {
       if (post) {
         // code goes here to add the new post onto the array of _posts
-
+        this._posts.push(post);
         console.log('Post was created!');
         setTimeout(() => {
           resolve(post);

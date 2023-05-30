@@ -10,6 +10,7 @@ const start = async () => {
   await api.getInitialPosts();
 
   // code goes below to call the api getInitialPosts method then call
+  
   // api.getPosts() inside the callback of the successful aforementioned
   // call then if successful log '-----------------', loop thru the resolved
   // posts results and run printPostRow(post) for each one
